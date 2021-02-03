@@ -53,13 +53,17 @@ if(isset($_POST['update'])){
 		</tr>
 	</table>
 
-	<table align="center" border="1">
-		<tr>
-			<td>NO</td>
-			<td>Username</td>
-			<td>Password</td>
-			<td colspan="2">aksi</td>
-		</tr>
+	<table id="example" class="display" style="width:100%">
+		<thead>
+			<tr>
+				<th>NO</th>
+				<th>Username</th>
+				<th>Password</th>
+				<th>aksi</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
 		<?php
 			$a = $go->tampil($con, $tabel);
 			$no = 0;
@@ -68,15 +72,15 @@ if(isset($_POST['update'])){
 			}else{
 			foreach($a as $r){
 			$no++;
-		?>
-		<tr>
-			<td><?php echo $no ?></td>
-			<td><?php echo $r['username'] ?></td>
-			<td><?php echo $r['password'] ?></td>
-			<td><a href="?menu=user&hapus&id=<?php echo $r['id'] ?>"onclick="return confirm('Hapus Data <?php echo $r['username'] ?>?')">Hapus</a></td>
-			<td><a href="?menu=user&edit&id=<?php echo $r['id']?>">Edit</a></td>
-
-		</tr>
+		?>			
+			<tr>
+				<td><?php echo $no ?></td>
+				<td><?php echo $r['username'] ?></td>
+				<td><?php echo $r['password'] ?></td>
+				<td><a href="?menu=user&hapus&id=<?php echo $r['id'] ?>"onclick="return confirm('Hapus Data <?php echo $r['username'] ?>?')">Hapus</a></td>
+				<td><a href="?menu=user&edit&id=<?php echo $r['id']?>">Edit</a></td>
+			</tr>
 		<?php } }?>
+		</tbody>
 	</table>
 </form>
