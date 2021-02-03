@@ -22,7 +22,7 @@ if(isset($_GET['edit'])){
     $edit = $go->edit($con, $tabel, $where);
 }
 if(isset($_POST['update'])){
-	$ubah = $go->ubah($con, $table,  $field, $where, $redirect);
+	$go->ubah($con, $tabel,  $field, $where, $redirect);
 }
 
 
@@ -38,7 +38,7 @@ if(isset($_POST['update'])){
 		<tr>
 			<td>Password</td>
 			<td>:</td>
-			<td><input type="text" name="password" value="<?php echo @$edit['password']?>"></td>
+			<td><input type="text" name="password" value="<?php echo base64_decode(@$edit['password'])?>"></td>
 		</tr>
 		<tr>
 			<td></td>

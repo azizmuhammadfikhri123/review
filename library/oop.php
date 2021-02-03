@@ -64,7 +64,7 @@ class oop{
         return $tampung;
     }
 
-    function ubah($con, $table, array $field, $where, $redirect){
+    function ubah($con, $tabel, array $field, $where, $redirect){
         $sql = "UPDATE $tabel SET ";
         foreach ($field as $key => $value) {
             $sql.=" $key = '$value',";
