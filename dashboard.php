@@ -43,6 +43,7 @@ if($_SESSION['user']==""){
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li>
                                     <a class="dropdown-item" href="?menu=user">User</a>
+                                    <a class="dropdown-item" href="?menu=jenis">Jenis</a>
                                 </li>
                             </ul>
                         </li>
@@ -69,6 +70,10 @@ if($_SESSION['user']==""){
             switch(@$_GET['menu']){
             case 'user';
             include 'user.php';
+            break;
+
+            case 'jenis';
+            include 'jenis.php';
             break;
             }
         ?>
