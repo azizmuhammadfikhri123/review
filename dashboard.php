@@ -44,6 +44,7 @@ if($_SESSION['user']==""){
                                 <li>
                                     <a class="dropdown-item" href="?menu=user">User</a>
                                     <a class="dropdown-item" href="?menu=jenis">Jenis</a>
+                                    <a class="dropdown-item" href="?menu=product">Product</a>
                                 </li>
                             </ul>
                         </li>
@@ -74,6 +75,10 @@ if($_SESSION['user']==""){
 
             case 'jenis';
             include 'jenis.php';
+            break;
+            
+            case 'product';
+            include 'product.php';
             break;
             }
         ?>
