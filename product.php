@@ -9,7 +9,7 @@ $tanggal = date('Y-m-d');
 $field = array('nama' => @$_POST['nama'],
                 'jenisID' => @$_POST['jenis'],
                 'foto' => 'foto.jpg',
-                'tglInput' => $tanggal,
+                'tglinput' => $tanggal,
                 'ket' => @$_POST['ket'] );
 
 $redirect = '?menu=product';
@@ -19,11 +19,11 @@ $redirect = '?menu=product';
 
 if(isset($_POST['simpan'])){
     $go->simpan($con, $tabel, $field, $redirect);
-  }
+}
 
 if(isset($_GET['hapus'])){
     $go->hapus($con, $tabel, $where, $redirect);
-  }
+}
 
 if(isset($_GET['edit'])){
     $edit = $go->edit($con, $tabel, $where);
@@ -39,7 +39,7 @@ if(isset($_POST['ubah'])){
 
     <div class="mb-3">
         <label class="form-label">Nama</label>
-        <input type="text" name="nama" class="form-control" value="<?php echo @$edit['jenis'] ?>">
+        <input type="text" name="nama" class="form-control" value="<?php echo @$edit['nama'] ?>">
     </div>
     <div class="mb-3">
         <label class="form-label">Jenis</label>
@@ -52,8 +52,15 @@ if(isset($_POST['ubah'])){
             ?>
             <option value="<?php echo $r['jenisID'] ?>"><?php echo $r['jenis'] ?></option>
             <?php } ?>
-
         </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Foto</label>
+        <input type="file" name="foto" class="form-control" value="<?php echo @$edit['foto'] ?>">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Keterangan</label>
+        <input type="textarea" name="ket" class="form-control" value="<?php echo @$edit['ket'] ?>">
     </div>
 
         <?php if(@$_GET['id']=="") { ?>
@@ -61,7 +68,6 @@ if(isset($_POST['ubah'])){
         <?php }else{ ?>
         <input class="btn btn-success" type="submit" name="ubah" value="UPDATE">
         <?php } ?>
-
 </form>
 
 <br>
@@ -70,10 +76,11 @@ if(isset($_POST['ubah'])){
     <thead>
         <tr>
             <th>NO</th>
-            <th>Jenis</th>
+            <th>Nama</th>
+            <th>jenis</th>
+            <th>Foto</th>
+            <th>Keterangan</th>
             <th>Aksi</th>
-            <th></th>
-
         </tr>
     </thead>
     <tbody>
@@ -91,9 +98,11 @@ if(isset($_POST['ubah'])){
         ?>
         <tr>
             <td><?php echo $no ?></td>
-            <td><?php echo $r['jenis'] ?></td>
-            <td><a class="btn btn-danger" href="?menu=jenis&edit&id=<?php echo $r['jenisID'] ?>">Edit</a></td>
-            <td><a class="btn btn-success" href="?menu=jenis&hapus&id=<?php echo $r['jenisID'] ?>" onclick="return confirm('Hapus data <?php echo $r['jenis'] ?> ?')">Hapus</a></td>
+            <td><?php echo $r['product'] ?></td>
+            <td><a class="btn btn-danger" href="?menu=product&edit&id=<?php echo $r['productID'] ?>">Edit</a></td>
+            <td><a class="btn btn-success" href="?menu=product&hapus&id=<?php echo $r['productID'] ?>" onclick="return confirm('Hapus data <?php echo $r['product'] ?> ?')">Hapus</a></td>
+            <td></td>
+            <td></td>
         </tr>
             <?php }  } ?>
 

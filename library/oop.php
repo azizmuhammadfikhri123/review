@@ -78,7 +78,13 @@ class oop{
         }else{
             echo "<script>alert('Data gagal diubah');document.location.href='$redirect'</script>";
         }
+    }
 
+    function update($foto, $tempat){
+        $alamat = $foto['tmp_name'];
+        $namafile = $foto['name'];
+        move_uploaded_file($alamat, "$tempat/$namafile");
+        return $namafile;
     }
 
 

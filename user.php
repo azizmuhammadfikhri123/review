@@ -2,7 +2,7 @@
 
 include "config/koneksi.php";
 include "library/oop.php";
-include "dashboard.php";
+
 
 $go = new oop();
 $tabel = 'login';
@@ -15,11 +15,11 @@ $field = array(
 
 if(isset($_POST['simpan'])){
     $go->simpan($con, $tabel, $field, $redirect);
-  }
+}
 
 if(isset($_GET['hapus'])){
     $go->hapus($con, $tabel, $where, $redirect);
-  }
+}
 
 if(isset($_GET['edit'])){
     $edit = $go->edit($con, $tabel, $where);
@@ -29,7 +29,7 @@ if(isset($_POST['ubah'])){
     $go->ubah($con, $tabel, $field, $where, $redirect);
 }
 
-  ?>
+?>
 
 <form method='post'>
 
@@ -91,7 +91,7 @@ if(isset($_POST['ubah'])){
             <td><a class="btn btn-warning" href="?menu=user&edit&id=<?php echo $r['id'] ?>">Edit</a></td>
             <td><a class="btn btn-danger" href="?menu=user&hapus&id=<?php echo $r['id'] ?>" onclick="return confirm('Hapus data <?php echo $r['username'] ?> ?')">Hapus</a></td>
         </tr>
-              <?php }  } ?>
+        <?php }  } ?>
 
     </tbody>
 </table>
